@@ -1,5 +1,7 @@
+import musicdiscovery.ui.MainWindow;
+
 public class MusicDiscovery {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        MainWindow mainWindow = new MainWindow();
     }
 }
