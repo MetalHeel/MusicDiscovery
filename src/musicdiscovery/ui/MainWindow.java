@@ -1,20 +1,31 @@
 package musicdiscovery.ui;
 
+import musicdiscovery.ui.listeners.ChooseDirectoryListener;
+import musicdiscovery.ui.listeners.DiscoveryListener;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class MainWindow {
+    private JTextField directoryLocationField;
+    private JTextArea logText;
+
     public MainWindow() {
+    }
+
+    public void showWindow() {
         // Set up the window.
         JFrame frame = new JFrame("Music Discovery");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         frame.setSize(500, 500);
+        frame.setResizable(false);
         GridBagConstraints c = new GridBagConstraints();
         // Explanation text.
-        JTextArea explanation = new JTextArea("Select or enter your directory below. Then click \"Discover and Listen\" to search directories and start hosting.");
-        explanation.setLineWrap(true);
-        explanation.setOpaque(false);
+        JTextArea explanationText = new JTextArea("Select or enter your directory below. Then click \"Discover and Listen\" to search directories and start hosting.");
+        explanationText.setLineWrap(true);
+        explanationText.setOpaque(false);
+        explanationText.setFocusable(false);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 0;
@@ -22,7 +33,7 @@ public class MainWindow {
         c.weightx = 0.0;
         c.weighty = 0.1;
         c.insets = new Insets(0, 10, 0, 10);
-        frame.add(explanation, c);
+        frame.add(explanationText, c);
         // Reset grid width.
         c.gridwidth = 1;
         // Directory label.
@@ -35,28 +46,29 @@ public class MainWindow {
         c.insets = new Insets(0, 10, 0, 0);
         frame.add(directoryLabel, c);
         // Directory text.
-        JTextField directoryLocation = new JTextField();
+        directoryLocationField = new JTextField();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
         c.gridy = 1;
         c.weightx = 0.8;
         c.weighty = 0.1;
         c.insets = new Insets(0, 0, 0, 10);
-        frame.add(directoryLocation, c);
+        frame.add(directoryLocationField, c);
         // Choose directory button.
-        JButton chooseDirectory = new JButton("Choose New...");
+        JButton chooseDirectoryButton = new JButton("Choose New...");
+        chooseDirectoryButton.addActionListener(new ChooseDirectoryListener(this));
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 2;
         c.gridy = 1;
         c.weightx = 0.1;
         c.weighty = 0.1;
         c.insets = new Insets(0, 0, 0, 10);
-        frame.add(chooseDirectory, c);
+        frame.add(chooseDirectoryButton, c);
         // Log text.
-        JTextArea log = new JTextArea();
-        log.setLineWrap(true);
-        log.setBackground(Color.white);
-        log.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK),
+        logText = new JTextArea();
+        logText.setLineWrap(true);
+        logText.setBackground(Color.white);
+        logText.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK),
                 BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 0;
@@ -65,9 +77,10 @@ public class MainWindow {
         c.weightx = 0.0;
         c.weighty = 0.8;
         c.insets = new Insets(0, 10, 10, 10);
-        frame.add(log, c);
+        frame.add(logText, c);
         // Discover and listen button.
-        JButton discoverAndListen = new JButton("Discover and Listen");
+        JButton discoverAndListenButton = new JButton("Discover and Listen");
+        discoverAndListenButton.addActionListener(new DiscoveryListener(this));
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 3;
@@ -76,8 +89,24 @@ public class MainWindow {
         c.weighty = 0.1;
         c.ipady = 20;
         c.insets = new Insets(0, 10, 10, 10);
-        frame.add(discoverAndListen, c);
+        frame.add(discoverAndListenButton, c);
         // Show window.
         frame.setVisible(true);
+    }
+
+    public String getDirectoryLocation() {
+        return directoryLocationField.getText();
+    }
+
+    public void setDirectoryLocation(String directoryLocation) {
+        directoryLocationField.setText(directoryLocation);
+    }
+
+    public void logMessage(String message) {
+        logText.append(String.format("%s\n", message));
+    }
+
+    public void clearLog() {
+        logText.setText("");
     }
 }
