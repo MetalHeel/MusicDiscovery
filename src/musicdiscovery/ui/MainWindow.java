@@ -73,6 +73,7 @@ public class MainWindow {
         logText.setBackground(Color.white);
         logText.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK),
                 BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        logText.setFocusable(false);
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 0;
         c.gridy = 2;
@@ -117,6 +118,7 @@ public class MainWindow {
 
     public void stopListen() {
         discoverAndListenButton.setVisible(true);
+        discoverAndListenButton.setEnabled(true);
         stopButton.setVisible(false);
     }
 

@@ -18,6 +18,5 @@ public class StopListeningListener implements ActionListener {
         mainWindow.logMessage("Closing down listen.");
         mainWindow.stopListen();
         mainWindow.logMessage("Listening has finished.");
-        ((JButton)e.getSource()).setEnabled(true);
     }
 }
