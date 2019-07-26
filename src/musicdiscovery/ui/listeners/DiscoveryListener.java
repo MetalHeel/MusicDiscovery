@@ -2,6 +2,7 @@ package musicdiscovery.ui.listeners;
 
 import musicdiscovery.ui.MainWindow;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -15,6 +16,7 @@ public class DiscoveryListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        ((JButton)e.getSource()).setEnabled(false);
         mainWindow.clearLog();
         mainWindow.logMessage("Checking directory location...");
         String directoryLocation = mainWindow.getDirectoryLocation();
@@ -27,5 +29,7 @@ public class DiscoveryListener implements ActionListener {
             mainWindow.logMessage("Not a valid directory.");
             return;
         }
+        mainWindow.logMessage("Valid directory found.");
+        mainWindow.initListen();
     }
 }

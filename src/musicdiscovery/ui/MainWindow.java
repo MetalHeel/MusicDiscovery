@@ -2,6 +2,7 @@ package musicdiscovery.ui;
 
 import musicdiscovery.ui.listeners.ChooseDirectoryListener;
 import musicdiscovery.ui.listeners.DiscoveryListener;
+import musicdiscovery.ui.listeners.StopListeningListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,6 +10,8 @@ import java.awt.*;
 public class MainWindow {
     private JTextField directoryLocationField;
     private JTextArea logText;
+    private JButton discoverAndListenButton;
+    private JButton stopButton;
 
     public MainWindow() {
     }
@@ -79,7 +82,7 @@ public class MainWindow {
         c.insets = new Insets(0, 10, 10, 10);
         frame.add(logText, c);
         // Discover and listen button.
-        JButton discoverAndListenButton = new JButton("Discover and Listen");
+        discoverAndListenButton = new JButton("Discover and Listen");
         discoverAndListenButton.addActionListener(new DiscoveryListener(this));
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
@@ -90,8 +93,31 @@ public class MainWindow {
         c.ipady = 20;
         c.insets = new Insets(0, 10, 10, 10);
         frame.add(discoverAndListenButton, c);
+        // Stop button.
+        stopButton = new JButton("Stop");
+        stopButton.addActionListener(new StopListeningListener(this));
+        stopButton.setVisible(false);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 3;
+        c.gridwidth = 3;
+        c.weightx = 0.0;
+        c.weighty = 0.1;
+        c.ipady = 20;
+        c.insets = new Insets(0, 10, 10, 10);
+        frame.add(stopButton, c);
         // Show window.
         frame.setVisible(true);
+    }
+
+    public void initListen() {
+        discoverAndListenButton.setVisible(false);
+        stopButton.setVisible(true);
+    }
+
+    public void stopListen() {
+        discoverAndListenButton.setVisible(true);
+        stopButton.setVisible(false);
     }
 
     public String getDirectoryLocation() {
