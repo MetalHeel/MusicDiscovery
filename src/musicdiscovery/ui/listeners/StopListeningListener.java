@@ -2,7 +2,6 @@ package musicdiscovery.ui.listeners;
 
 import musicdiscovery.ui.MainWindow;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

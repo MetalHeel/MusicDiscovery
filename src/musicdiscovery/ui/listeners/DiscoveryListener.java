@@ -25,6 +25,10 @@ public class DiscoveryListener implements ActionListener {
             return;
         }
         File musicDirectory = new File((directoryLocation));
+        if (!musicDirectory.isDirectory()) {
+            mainWindow.logMessage("Location chosen is not a directory.");
+            return;
+        }
         if (!musicDirectory.exists()) {
             mainWindow.logMessage("Not a valid directory.");
             return;
