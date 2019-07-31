@@ -1,11 +1,14 @@
 package musicdiscovery.ui;
 
+import musicdiscovery.data.Artist;
+import musicdiscovery.files.MusicFinder;
 import musicdiscovery.ui.listeners.ChooseDirectoryListener;
 import musicdiscovery.ui.listeners.DiscoveryListener;
 import musicdiscovery.ui.listeners.StopListeningListener;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Map;
 
 public class MainWindow {
     private JTextField directoryLocationField;
@@ -112,6 +115,8 @@ public class MainWindow {
     }
 
     public void initListen() {
+        // TODO: Error handling.
+        Map<String, Artist> musicData = MusicFinder.findMusic(getDirectoryLocation());
         discoverAndListenButton.setVisible(false);
         stopButton.setVisible(true);
     }

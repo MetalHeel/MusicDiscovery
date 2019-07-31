@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="da0f1f03-4fd9-44f3-87d4-fe737dabae8c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/META-INF/MusicDiscovery.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/musicdiscovery/ui/listeners/DiscoveryListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/musicdiscovery/ui/listeners/DiscoveryListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/musicdiscovery/ui/listeners/StopListeningListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/musicdiscovery/ui/listeners/StopListeningListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/musicdiscovery/files/MusicFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/musicdiscovery/files/MusicFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/ui/listeners/DiscoveryListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/musicdiscovery/ui/listeners/DiscoveryListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/ui/listeners/StopListeningListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/musicdiscovery/ui/listeners/StopListeningListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/ui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/musicdiscovery/ui/MainWindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
