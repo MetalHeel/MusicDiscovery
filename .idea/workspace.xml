@@ -3,8 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="da0f1f03-4fd9-44f3-87d4-fe737dabae8c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/files/MusicFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/musicdiscovery/files/MusicFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/ui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/musicdiscovery/ui/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicDiscovery.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicDiscovery.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/musicdiscovery/MusicDiscoverer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/musicdiscovery/files/MusicFinder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/musicdiscovery/ui/MainWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/musicdiscovery/ui/listeners/ChooseDirectoryListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/musicdiscovery/ui/listeners/DiscoveryListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/musicdiscovery/ui/listeners/StopListeningListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/MusicDiscoverer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/MusicDiscoverer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/data/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/data/Album.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/data/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/data/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/data/DataItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/data/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/data/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/files/MusicFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/MusicFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/ui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/ui/listeners/ChooseDirectoryListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/listeners/ChooseDirectoryListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/ui/listeners/DiscoveryListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/listeners/DiscoveryListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/musicdiscovery/ui/listeners/StopListeningListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/listeners/StopListeningListener.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +33,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -31,10 +47,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/thirdparty/jaudiotagger-2.2.3.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.bram.musicdiscovery.files" />
       <recent name="musicdiscovery" />
     </key>
   </component>
@@ -87,5 +108,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/MainWindow.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
