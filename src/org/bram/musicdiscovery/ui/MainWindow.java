@@ -118,11 +118,14 @@ public class MainWindow {
 
     public void initListen() {
         try {
+            logMessage("Finding music...");
             Map<String, Artist> musicData = musicFinder.findMusic(getDirectoryLocation());
+            logMessage("Music compiled.");
             discoverAndListenButton.setVisible(false);
             stopButton.setVisible(true);
         } catch (Throwable t) {
-            // TODO: Error handling.
+            // TODO: Error handling and reset everything.
+            System.out.println(t.getMessage());
         }
     }
 

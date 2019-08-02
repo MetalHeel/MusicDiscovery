@@ -17,6 +17,7 @@ public class DiscoveryListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        // TODO: Disable the directory stuff.
         ((JButton)e.getSource()).setEnabled(false);
         mainWindow.clearLog();
         mainWindow.logMessage("Checking directory location...");
