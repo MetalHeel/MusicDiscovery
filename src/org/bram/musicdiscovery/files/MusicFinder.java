@@ -16,8 +16,6 @@ public class MusicFinder {
     }
 
     public Map<String, Artist> findMusic(String musicDirectory) throws Exception {
-        // TODO: Warn that this will clear all existing music, or maybe some sort of cache?
-        music.clear();
         File thisDirectory = new File(musicDirectory);
         // TODO: Other music file types.
         File[] files = thisDirectory.listFiles((directory, name) -> name.endsWith(".mp3"));
@@ -56,5 +54,10 @@ public class MusicFinder {
             }
         }
         return music;
+    }
+
+    public void clearMusicData() {
+        // TODO: Warn that this will clear all existing music, or maybe some sort of cache?
+        music.clear();
     }
 }

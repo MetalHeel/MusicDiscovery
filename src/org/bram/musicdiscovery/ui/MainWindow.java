@@ -74,6 +74,9 @@ public class MainWindow {
         frame.add(chooseDirectoryButton, c);
         // Log text.
         logText = new JTextArea();
+        JScrollPane scrollPane = new JScrollPane(logText);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setPreferredSize(new Dimension(100, 100));
         logText.setLineWrap(true);
         logText.setBackground(Color.white);
         logText.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK),
@@ -86,7 +89,7 @@ public class MainWindow {
         c.weightx = 0.0;
         c.weighty = 0.8;
         c.insets = new Insets(0, 10, 10, 10);
-        frame.add(logText, c);
+        frame.add(scrollPane, c);
         // Discover and listen button.
         discoverAndListenButton = new JButton("Discover and Listen");
         discoverAndListenButton.addActionListener(new DiscoveryListener(this));
@@ -119,13 +122,14 @@ public class MainWindow {
     public void initListen() {
         try {
             logMessage("Finding music...");
+            musicFinder.clearMusicData();
             Map<String, Artist> musicData = musicFinder.findMusic(getDirectoryLocation());
             logMessage("Music compiled.");
             discoverAndListenButton.setVisible(false);
             stopButton.setVisible(true);
         } catch (Throwable t) {
             // TODO: Error handling and reset everything.
-            System.out.println(t.getMessage());
+            logMessage(String.format("Discovery failed: %s", t.getMessage()));
         }
     }
 

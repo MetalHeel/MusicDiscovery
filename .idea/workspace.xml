@@ -2,22 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da0f1f03-4fd9-44f3-87d4-fe737dabae8c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jaudiotagger_2_2_3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/MusicDiscoverer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/IMusicFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/Mp3MusicFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/MusicFinder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/data/Album.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/data/Artist.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/data/Song.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/MainWindow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/listeners/ChooseDirectoryListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/listeners/DiscoveryListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/listeners/StopListeningListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/utils/StringUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicDiscovery.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicDiscovery.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/IMusicFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/IMusicFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/Mp3MusicFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/Mp3MusicFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/MusicFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/MusicFinder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/MainWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/utils/StringUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/utils/StringUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/IMusicFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/IMusicFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/Mp3MusicFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/Mp3MusicFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/MusicFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/MusicFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/listeners/DiscoveryListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/listeners/DiscoveryListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/utils/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/jaudiotagger-2.2.3.jar" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +42,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/thirdparty/jaudiotagger-2.2.3.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/thirdparty/jaudiotagger-2.2.6-SNAPSHOT.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -106,16 +103,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/bram/musicdiscovery/files/MusicFinder.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
