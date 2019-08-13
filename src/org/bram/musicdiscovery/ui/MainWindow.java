@@ -11,8 +11,10 @@ import java.awt.*;
 import java.util.Map;
 
 public class MainWindow {
+    private JFrame frame;
     private JTextField directoryLocationField;
     private JTextArea logText;
+    private JScrollPane scrollPane;
     private JButton discoverAndListenButton;
     private JButton stopButton;
     private MusicFinder musicFinder;
@@ -23,7 +25,7 @@ public class MainWindow {
 
     public void showWindow() {
         // Set up the window.
-        JFrame frame = new JFrame("Music Discovery");
+        frame = new JFrame("Music Discovery");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         frame.setSize(500, 500);
@@ -74,7 +76,7 @@ public class MainWindow {
         frame.add(chooseDirectoryButton, c);
         // Log text.
         logText = new JTextArea();
-        JScrollPane scrollPane = new JScrollPane(logText);
+        scrollPane = new JScrollPane(logText);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setPreferredSize(new Dimension(100, 100));
         logText.setLineWrap(true);

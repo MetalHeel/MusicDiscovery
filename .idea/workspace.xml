@@ -3,18 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="da0f1f03-4fd9-44f3-87d4-fe737dabae8c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicDiscovery.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicDiscovery.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/IMusicFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/IMusicFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/Mp3MusicFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/Mp3MusicFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/MusicFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/MusicFinder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/MainWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/utils/StringUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/utils/StringUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/IMusicFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/IMusicFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/Mp3MusicFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/Mp3MusicFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/MusicFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/MusicFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/utils/StringUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/jaudiotagger-2.2.3.jar" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
