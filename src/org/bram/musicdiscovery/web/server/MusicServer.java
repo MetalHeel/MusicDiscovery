@@ -10,11 +10,16 @@ import java.util.concurrent.Executors;
 public class MusicServer {
     HttpServer httpServer;
 
-    public MusicServer() throws IOException {
-        httpServer = HttpServer.create(new InetSocketAddress(0420), 0);
-        httpServer.createContext("/ping", new PingHandler());
-        // TODO: Figure out Executors.
-        httpServer.setExecutor(Executors.newCachedThreadPool());
+    public MusicServer() {
+        try {
+            httpServer = HttpServer.create(new InetSocketAddress(420), 0);
+            httpServer.createContext("/ping", new PingHandler());
+            // TODO: Figure out Executors.
+            httpServer.setExecutor(null);
+        } catch (IOException e) {
+            // TODO: Need real logging. Say couldn't get the server up and running.
+            System.out.println(String.format("Could not construct server: %s", e.getMessage()));
+        }
     }
 
     public void listen() {

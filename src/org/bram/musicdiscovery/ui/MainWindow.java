@@ -5,6 +5,7 @@ import org.bram.musicdiscovery.files.MusicFinder;
 import org.bram.musicdiscovery.ui.listeners.ChooseDirectoryListener;
 import org.bram.musicdiscovery.ui.listeners.DiscoveryListener;
 import org.bram.musicdiscovery.ui.listeners.StopListeningListener;
+import org.bram.musicdiscovery.web.server.MusicServer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,9 +19,11 @@ public class MainWindow {
     private JButton discoverAndListenButton;
     private JButton stopButton;
     private MusicFinder musicFinder;
+    private MusicServer musicServer;
 
     public MainWindow() {
         musicFinder = new MusicFinder();
+        musicServer = new MusicServer();
     }
 
     public void showWindow() {
@@ -129,6 +132,7 @@ public class MainWindow {
             logMessage("Music compiled.");
             discoverAndListenButton.setVisible(false);
             stopButton.setVisible(true);
+            musicServer.listen();
         } catch (Throwable t) {
             // TODO: Error handling and reset everything.
             logMessage(String.format("Discovery failed: %s", t.getMessage()));
@@ -136,6 +140,7 @@ public class MainWindow {
     }
 
     public void stopListen() {
+        musicServer.stopListening();
         discoverAndListenButton.setVisible(true);
         discoverAndListenButton.setEnabled(true);
         stopButton.setVisible(false);
