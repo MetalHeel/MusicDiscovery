@@ -1,21 +1,22 @@
 package org.bram.musicdiscovery.files;
 
+import com.sun.source.tree.Tree;
 import org.bram.musicdiscovery.files.data.Album;
 import org.bram.musicdiscovery.files.data.Artist;
 import org.bram.musicdiscovery.files.data.Song;
 
 import java.io.File;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
-public class MusicFinder {
-    private Map<String, Artist> music;
+public class MusicService {
+    private static Map<String, Artist> music;
 
-    public MusicFinder() {
-        music = new TreeMap<>();
+    public static void findMusic(String musicDirectory) throws Exception {
+        music = findMusicHelper(musicDirectory);
     }
 
-    public Map<String, Artist> findMusic(String musicDirectory) throws Exception {
+    private static Map<String, Artist> findMusicHelper(String musicDirectory) throws Exception {
+        Map<String, Artist> newMusic = new TreeMap<>();
         File thisDirectory = new File(musicDirectory);
         // TODO: Other music file types.
         File[] files = thisDirectory.listFiles((directory, name) -> name.endsWith(".mp3"));
@@ -25,11 +26,11 @@ public class MusicFinder {
                 IMusicFile musicFile = new Mp3MusicFile();
                 musicFile.parseFile(file);
                 // Artist
-                Artist artist = music.get(musicFile.getArtist());
+                Artist artist = newMusic.get(musicFile.getArtist());
                 if (artist == null) {
                     artist = new Artist();
                     artist.setName(musicFile.getArtist());
-                    music.put(artist.getName(), artist);
+                    newMusic.put(artist.getName(), artist);
                 }
                 // Album
                 Album album = artist.getAlbumByName(musicFile.getAlbum());
@@ -50,14 +51,15 @@ public class MusicFinder {
         }
         if (directories != null) {
             for (File directory : directories) {
-                music.putAll(findMusic(directory.getPath()));
+                newMusic.putAll(findMusicHelper(directory.getPath()));
             }
         }
-        return music;
+        return newMusic;
     }
 
-    public void clearMusicData() {
-        // TODO: Warn that this will clear all existing music, or maybe some sort of cache?
-        music.clear();
+    public static Set<String> getAllArtists() {
+        Set<String> artists = new TreeSet<>();
+        artists.addAll(music.keySet());
+        return artists;
     }
 }

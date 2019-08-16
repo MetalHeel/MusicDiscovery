@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="da0f1f03-4fd9-44f3-87d4-fe737dabae8c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/MusicFinder.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/MainWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/MusicServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/MusicServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/MusicFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/MusicService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/MainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/MusicServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/MusicServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/GetAllArtistsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/GetAllArtistsHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,16 +98,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/PingHandler.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

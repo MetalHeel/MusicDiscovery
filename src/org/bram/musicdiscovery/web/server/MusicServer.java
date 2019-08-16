@@ -1,16 +1,17 @@
 package org.bram.musicdiscovery.web.server;
 
 import com.sun.net.httpserver.HttpServer;
+import org.bram.musicdiscovery.files.data.Artist;
 import org.bram.musicdiscovery.web.server.endpoints.PingHandler;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.util.concurrent.Executors;
+import java.util.Map;
 
 public class MusicServer {
-    HttpServer httpServer;
+    private static HttpServer httpServer;
 
-    public MusicServer() {
+    public static void init() {
         try {
             httpServer = HttpServer.create(new InetSocketAddress(420), 0);
             httpServer.createContext("/ping", new PingHandler());
@@ -22,11 +23,11 @@ public class MusicServer {
         }
     }
 
-    public void listen() {
+    public static void listen() {
         httpServer.start();
     }
 
-    public void stopListening() {
+    public static void stopListening() {
         httpServer.stop(0);
     }
 }

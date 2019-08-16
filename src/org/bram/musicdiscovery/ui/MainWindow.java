@@ -1,7 +1,7 @@
 package org.bram.musicdiscovery.ui;
 
 import org.bram.musicdiscovery.files.data.Artist;
-import org.bram.musicdiscovery.files.MusicFinder;
+import org.bram.musicdiscovery.files.MusicService;
 import org.bram.musicdiscovery.ui.listeners.ChooseDirectoryListener;
 import org.bram.musicdiscovery.ui.listeners.DiscoveryListener;
 import org.bram.musicdiscovery.ui.listeners.StopListeningListener;
@@ -18,12 +18,9 @@ public class MainWindow {
     private JScrollPane scrollPane;
     private JButton discoverAndListenButton;
     private JButton stopButton;
-    private MusicFinder musicFinder;
-    private MusicServer musicServer;
 
     public MainWindow() {
-        musicFinder = new MusicFinder();
-        musicServer = new MusicServer();
+        MusicServer.init();
     }
 
     public void showWindow() {
@@ -127,12 +124,12 @@ public class MainWindow {
     public void initListen() {
         try {
             logMessage("Finding music...");
-            musicFinder.clearMusicData();
-            Map<String, Artist> musicData = musicFinder.findMusic(getDirectoryLocation());
+            MusicService.findMusic(getDirectoryLocation());
             logMessage("Music compiled.");
             discoverAndListenButton.setVisible(false);
             stopButton.setVisible(true);
-            musicServer.listen();
+            MusicServer.listen();
+            logMessage("Now Listening.");
         } catch (Throwable t) {
             // TODO: Error handling and reset everything.
             logMessage(String.format("Discovery failed: %s", t.getMessage()));
@@ -140,7 +137,7 @@ public class MainWindow {
     }
 
     public void stopListen() {
-        musicServer.stopListening();
+        MusicServer.stopListening();
         discoverAndListenButton.setVisible(true);
         discoverAndListenButton.setEnabled(true);
         stopButton.setVisible(false);
