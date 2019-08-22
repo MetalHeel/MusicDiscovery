@@ -4,6 +4,7 @@ import com.sun.source.tree.Tree;
 import org.bram.musicdiscovery.files.data.Album;
 import org.bram.musicdiscovery.files.data.Artist;
 import org.bram.musicdiscovery.files.data.Song;
+import org.bram.musicdiscovery.utils.StringUtils;
 
 import java.io.File;
 import java.util.*;
@@ -26,18 +27,18 @@ public class MusicService {
                 IMusicFile musicFile = new Mp3MusicFile();
                 musicFile.parseFile(file);
                 // Artist
-                Artist artist = newMusic.get(musicFile.getArtist());
+                Artist artist = newMusic.get(musicFile.getArtist().toLowerCase());
                 if (artist == null) {
                     artist = new Artist();
-                    artist.setName(musicFile.getArtist());
+                    artist.setName(musicFile.getArtist().toLowerCase());
                     newMusic.put(artist.getName(), artist);
                 }
                 // Album
-                Album album = artist.getAlbumByName(musicFile.getAlbum());
+                Album album = artist.getAlbumByName(musicFile.getAlbum().toLowerCase());
                 if (album == null) {
                     album = new Album();
                     album.setArtist(artist);
-                    album.setName(musicFile.getAlbum());
+                    album.setName(musicFile.getAlbum().toLowerCase());
                     artist.addAlbum(album);
                 }
                 // Song
@@ -61,5 +62,18 @@ public class MusicService {
         Set<String> artists = new TreeSet<>();
         artists.addAll(music.keySet());
         return artists;
+    }
+
+    public static Set<String> getAllAlbumsForArtist(String artistName) {
+        Set<String> albums = new TreeSet<>();
+        if (StringUtils.isBlank(artistName)) {
+            return albums;
+        }
+        Artist artist = music.get(artistName);
+        if (artist == null) {
+            return albums;
+        }
+        albums = artist.getAlbums().keySet();
+        return albums;
     }
 }
