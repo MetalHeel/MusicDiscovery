@@ -1,6 +1,5 @@
 package org.bram.musicdiscovery.files;
 
-import com.sun.source.tree.Tree;
 import org.bram.musicdiscovery.files.data.Album;
 import org.bram.musicdiscovery.files.data.Artist;
 import org.bram.musicdiscovery.files.data.Song;
@@ -8,6 +7,7 @@ import org.bram.musicdiscovery.utils.StringUtils;
 
 import java.io.File;
 import java.util.*;
+import java.util.Map.*;
 
 public class MusicService {
     private static Map<String, Artist> music;
@@ -73,7 +73,26 @@ public class MusicService {
         if (artist == null) {
             return albums;
         }
-        albums = artist.getAlbums().keySet();
+        albums.addAll(artist.getAlbums().keySet());
         return albums;
+    }
+
+    public static Set<String> getAllSongsForArtistAndAlbum(String artistName, String albumName) {
+        Set<String> songs = new LinkedHashSet<>();
+        if (StringUtils.isBlank(artistName) || StringUtils.isBlank(albumName)) {
+            return songs;
+        }
+        Artist artist = music.get(artistName);
+        if (artist == null) {
+            return songs;
+        }
+        Album album = artist.getAlbumByName(albumName);
+        if (album == null) {
+            return songs;
+        }
+        for (Entry<Integer, Song> entry : album.getSongs().entrySet()) {
+            songs.add(entry.getValue().getName());
+        }
+        return songs;
     }
 }
