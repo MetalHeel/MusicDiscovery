@@ -1,10 +1,7 @@
 package org.bram.musicdiscovery.web.server;
 
 import com.sun.net.httpserver.HttpServer;
-import org.bram.musicdiscovery.web.server.endpoints.GetAllAlbumsForArtistHandler;
-import org.bram.musicdiscovery.web.server.endpoints.GetAllArtistsHandler;
-import org.bram.musicdiscovery.web.server.endpoints.GetAllSongsForArtistAndAlbumHandler;
-import org.bram.musicdiscovery.web.server.endpoints.PingHandler;
+import org.bram.musicdiscovery.web.server.endpoints.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -19,6 +16,7 @@ public class MusicServer {
             httpServer.createContext("/getAllArtists", new GetAllArtistsHandler());
             httpServer.createContext("/getAllAlbumsForArtist", new GetAllAlbumsForArtistHandler());
             httpServer.createContext("/getAllSongsForArtistAndAlbum", new GetAllSongsForArtistAndAlbumHandler());
+            httpServer.createContext("/streamSong", new StreamSongHandler());
             // TODO: Figure out Executors.
             httpServer.setExecutor(null);
         } catch (IOException e) {

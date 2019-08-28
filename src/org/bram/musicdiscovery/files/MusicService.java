@@ -77,8 +77,8 @@ public class MusicService {
         return albums;
     }
 
-    public static Set<String> getAllSongsForArtistAndAlbum(String artistName, String albumName) {
-        Set<String> songs = new LinkedHashSet<>();
+    public static List<String> getAllSongsForArtistAndAlbum(String artistName, String albumName) {
+        List<String> songs = new ArrayList<>();
         if (StringUtils.isBlank(artistName) || StringUtils.isBlank(albumName)) {
             return songs;
         }
@@ -94,5 +94,25 @@ public class MusicService {
             songs.add(entry.getValue().getName());
         }
         return songs;
+    }
+
+    public static String getTrackLocation(String artistName, String albumName, int trackNumber) {
+        if (StringUtils.isBlank(artistName) || StringUtils.isBlank(albumName)) {
+            return null;
+        }
+        Artist artist = music.get(artistName);
+        if (artist == null) {
+            return null;
+        }
+        Album album = artist.getAlbumByName(albumName);
+        if (album == null) {
+            return null;
+        }
+        for (Entry<Integer, Song> entry : album.getSongs().entrySet()) {
+            if (entry.getValue().getTrackNumber() == trackNumber) {
+                return entry.getValue().getPath();
+            }
+        }
+        return null;
     }
 }
