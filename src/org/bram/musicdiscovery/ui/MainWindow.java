@@ -1,23 +1,17 @@
 package org.bram.musicdiscovery.ui;
 
-import org.bram.musicdiscovery.files.data.Artist;
 import org.bram.musicdiscovery.files.MusicService;
 import org.bram.musicdiscovery.ui.listeners.ChooseDirectoryListener;
 import org.bram.musicdiscovery.ui.listeners.DiscoveryListener;
-import org.bram.musicdiscovery.ui.listeners.StopListeningListener;
 import org.bram.musicdiscovery.web.server.MusicServer;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Map;
+import java.io.File;
 
 public class MainWindow {
-    private JFrame frame;
     private JTextField directoryLocationField;
     private JTextArea logText;
-    private JScrollPane scrollPane;
-    private JButton discoverAndListenButton;
-    private JButton stopButton;
 
     public MainWindow() {
         MusicServer.init();
@@ -25,7 +19,7 @@ public class MainWindow {
 
     public void showWindow() {
         // Set up the window.
-        frame = new JFrame("Music Discovery");
+        JFrame frame = new JFrame("Music Discovery");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         frame.setSize(500, 500);
@@ -76,7 +70,7 @@ public class MainWindow {
         frame.add(chooseDirectoryButton, c);
         // Log text.
         logText = new JTextArea();
-        scrollPane = new JScrollPane(logText);
+        JScrollPane scrollPane = new JScrollPane(logText);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setPreferredSize(new Dimension(100, 100));
         logText.setLineWrap(true);
@@ -92,9 +86,9 @@ public class MainWindow {
         c.weighty = 0.8;
         c.insets = new Insets(0, 10, 10, 10);
         frame.add(scrollPane, c);
-        // Discover and listen button.
-        discoverAndListenButton = new JButton("Discover and Listen");
-        discoverAndListenButton.addActionListener(new DiscoveryListener(this));
+        // Discover button.
+        JButton discoverButton = new JButton("Discover");
+        discoverButton.addActionListener(new DiscoveryListener(this));
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 3;
@@ -103,20 +97,7 @@ public class MainWindow {
         c.weighty = 0.1;
         c.ipady = 20;
         c.insets = new Insets(0, 10, 10, 10);
-        frame.add(discoverAndListenButton, c);
-        // Stop button.
-        stopButton = new JButton("Stop");
-        stopButton.addActionListener(new StopListeningListener(this));
-        stopButton.setVisible(false);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 3;
-        c.gridwidth = 3;
-        c.weightx = 0.0;
-        c.weighty = 0.1;
-        c.ipady = 20;
-        c.insets = new Insets(0, 10, 10, 10);
-        frame.add(stopButton, c);
+        frame.add(discoverButton, c);
         // Show window.
         frame.setVisible(true);
     }
@@ -125,22 +106,11 @@ public class MainWindow {
         try {
             logMessage("Finding music...");
             MusicService.findMusic(getDirectoryLocation());
-            logMessage("Music compiled.");
-            discoverAndListenButton.setVisible(false);
-            stopButton.setVisible(true);
-            MusicServer.listen();
-            logMessage("Now Listening.");
+            logMessage(String.format("Music compiled. Currently streaming music from %s.", new File(getDirectoryLocation()).getName()));
         } catch (Throwable t) {
             // TODO: Error handling and reset everything.
             logMessage(String.format("Discovery failed: %s", t.getMessage()));
         }
-    }
-
-    public void stopListen() {
-        MusicServer.stopListening();
-        discoverAndListenButton.setVisible(true);
-        discoverAndListenButton.setEnabled(true);
-        stopButton.setVisible(false);
     }
 
     public String getDirectoryLocation() {

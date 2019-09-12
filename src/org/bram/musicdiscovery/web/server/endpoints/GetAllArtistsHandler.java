@@ -9,19 +9,15 @@ import org.bram.musicdiscovery.files.MusicService;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class GetAllArtistsHandler implements HttpHandler {
+public class GetAllArtistsHandler extends AbstractHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        JsonObject response = new JsonObject();
         JsonArray array = new JsonArray();
         for (String artist : MusicService.getAllArtists()) {
             array.add(artist);
         }
-        JsonObject response = new JsonObject();
         response.add("artists", array);
-        exchange.getResponseHeaders().set("Content-Type", "application/json");
-        exchange.sendResponseHeaders(200, response.toString().length());
-        OutputStream os = exchange.getResponseBody();
-        os.write(response.toString().getBytes());
-        os.close();
+        writeResponse(exchange, 200, response.toString(), "application/json");
     }
 }

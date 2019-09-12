@@ -5,6 +5,7 @@ import org.bram.musicdiscovery.web.server.endpoints.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.util.concurrent.Executors;
 
 public class MusicServer {
     private static HttpServer httpServer;
@@ -17,19 +18,11 @@ public class MusicServer {
             httpServer.createContext("/getAllAlbumsForArtist", new GetAllAlbumsForArtistHandler());
             httpServer.createContext("/getAllSongsForArtistAndAlbum", new GetAllSongsForArtistAndAlbumHandler());
             httpServer.createContext("/streamSong", new StreamSongHandler());
-            // TODO: Figure out Executors.
-            httpServer.setExecutor(null);
+            httpServer.setExecutor(Executors.newCachedThreadPool());
+            httpServer.start();
         } catch (IOException e) {
             // TODO: Need real logging. Say couldn't get the server up and running.
             System.out.println(String.format("Could not construct server: %s", e.getMessage()));
         }
-    }
-
-    public static void listen() {
-        httpServer.start();
-    }
-
-    public static void stopListening() {
-        httpServer.stop(0);
     }
 }

@@ -5,26 +5,33 @@ import com.google.gson.JsonObject;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import org.bram.musicdiscovery.files.MusicService;
+import org.bram.musicdiscovery.utils.StringUtils;
 import org.bram.musicdiscovery.utils.WebUtils;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class GetAllSongsForArtistAndAlbumHandler implements HttpHandler {
+public class GetAllSongsForArtistAndAlbumHandler extends AbstractHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        JsonObject response = new JsonObject();
         String artist = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), "artist");
+        if (StringUtils.isBlank(artist)) {
+            response.addProperty("error", "Artist is blank");
+            writeResponse(exchange, 400, response.toString(), "application/json");
+            return;
+        }
         String album = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), "album");
+        if (StringUtils.isBlank(album)) {
+            response.addProperty("error", "Album is blank");
+            writeResponse(exchange, 400, response.toString(), "application/json");
+            return;
+        }
         JsonArray array = new JsonArray();
         for (String song : MusicService.getAllSongsForArtistAndAlbum(artist, album)) {
             array.add(song);
         }
-        JsonObject response = new JsonObject();
         response.add("songs", array);
-        exchange.getResponseHeaders().set("Content-Type", "application/json");
-        exchange.sendResponseHeaders(200, response.toString().length());
-        OutputStream os = exchange.getResponseBody();
-        os.write(response.toString().getBytes());
-        os.close();
+        writeResponse(exchange, 200, response.toString(), "application/json");
     }
 }

@@ -5,25 +5,26 @@ import com.google.gson.JsonObject;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import org.bram.musicdiscovery.files.MusicService;
+import org.bram.musicdiscovery.utils.StringUtils;
 import org.bram.musicdiscovery.utils.WebUtils;
 
 import java.io.IOException;
-import java.io.OutputStream;
 
-public class GetAllAlbumsForArtistHandler implements HttpHandler {
+public class GetAllAlbumsForArtistHandler extends AbstractHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        JsonObject response = new JsonObject();
         String artist = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), "artist");
+        if (StringUtils.isBlank(artist)) {
+            response.addProperty("error", "Artist is blank");
+            writeResponse(exchange, 400, response.toString(), "application/json");
+            return;
+        }
         JsonArray array = new JsonArray();
         for (String album : MusicService.getAllAlbumsForArtist(artist)) {
             array.add(album);
         }
-        JsonObject response = new JsonObject();
         response.add("albums", array);
-        exchange.getResponseHeaders().set("Content-Type", "application/json");
-        exchange.sendResponseHeaders(200, response.toString().length());
-        OutputStream os = exchange.getResponseBody();
-        os.write(response.toString().getBytes());
-        os.close();
+        writeResponse(exchange, 200, response.toString(), "application/json");
     }
 }
