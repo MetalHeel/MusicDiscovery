@@ -7,6 +7,7 @@ import com.sun.net.httpserver.HttpHandler;
 import org.bram.musicdiscovery.files.MusicService;
 import org.bram.musicdiscovery.utils.StringUtils;
 import org.bram.musicdiscovery.utils.WebUtils;
+import org.bram.musicdiscovery.utils.WebUtils.ContentType;
 
 import java.io.IOException;
 
@@ -17,7 +18,7 @@ public class GetAllAlbumsForArtistHandler extends AbstractHandler implements Htt
         String artist = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), "artist");
         if (StringUtils.isBlank(artist)) {
             response.addProperty("error", "Artist is blank");
-            writeResponse(exchange, 400, response.toString(), "application/json");
+            writeResponse(exchange, 400, response.toString(), ContentType.APPLICATION_JSON.getType());
             return;
         }
         JsonArray array = new JsonArray();
@@ -25,6 +26,6 @@ public class GetAllAlbumsForArtistHandler extends AbstractHandler implements Htt
             array.add(album);
         }
         response.add("albums", array);
-        writeResponse(exchange, 200, response.toString(), "application/json");
+        writeResponse(exchange, 200, response.toString(), ContentType.APPLICATION_JSON.getType());
     }
 }

@@ -5,9 +5,9 @@ import com.google.gson.JsonObject;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import org.bram.musicdiscovery.files.MusicService;
+import org.bram.musicdiscovery.utils.WebUtils.ContentType;
 
 import java.io.IOException;
-import java.io.OutputStream;
 
 public class GetAllArtistsHandler extends AbstractHandler implements HttpHandler {
     @Override
@@ -18,6 +18,6 @@ public class GetAllArtistsHandler extends AbstractHandler implements HttpHandler
             array.add(artist);
         }
         response.add("artists", array);
-        writeResponse(exchange, 200, response.toString(), "application/json");
+        writeResponse(exchange, 200, response.toString(), ContentType.APPLICATION_JSON.getType());
     }
 }

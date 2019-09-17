@@ -1,6 +1,21 @@
 package org.bram.musicdiscovery.utils;
 
 public class WebUtils {
+    public enum ContentType {
+        APPLICATION_JSON("application/json"),
+        AUDIO_MPEG("audio/mpeg");
+
+        private final String type;
+
+        ContentType(String type) {
+            this.type = type;
+        }
+
+        public String getType() {
+            return type;
+        }
+    }
+
     public static String getParameterValueFromQuery(String query, String parameterName) {
         if (StringUtils.isBlank(query)) {
             return null;

@@ -8,11 +8,9 @@ import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
 
 public class MusicServer {
-    private static HttpServer httpServer;
-
     public static void init() {
         try {
-            httpServer = HttpServer.create(new InetSocketAddress(420), 0);
+            HttpServer httpServer = HttpServer.create(new InetSocketAddress(420), 0);
             httpServer.createContext("/ping", new PingHandler());
             httpServer.createContext("/getAllArtists", new GetAllArtistsHandler());
             httpServer.createContext("/getAllAlbumsForArtist", new GetAllAlbumsForArtistHandler());
