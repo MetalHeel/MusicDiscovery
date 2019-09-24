@@ -3,7 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="da0f1f03-4fd9-44f3-87d4-fe737dabae8c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/utils/WebUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/utils/WebUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/MusicDiscoverer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/MusicDiscoverer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/Mp3MusicFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/files/Mp3MusicFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/MainWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/utils/WebUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/utils/WebUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/MusicServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/MusicServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/GetAllAlbumsForArtistHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/GetAllAlbumsForArtistHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/GetAllArtistsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/GetAllArtistsHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/GetAllSongsForArtistAndAlbumHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/GetAllSongsForArtistAndAlbumHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/StreamSongHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/StreamSongHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/MusicDiscoverer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/MusicDiscoverer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/Mp3MusicFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/files/Mp3MusicFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/MainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/MusicServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/MusicServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/GetAllAlbumsForArtistHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/GetAllAlbumsForArtistHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/GetAllArtistsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/GetAllArtistsHandler.java" afterDir="false" />
@@ -22,8 +33,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -44,6 +56,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.bram.musicdiscovery.web" />
+      <recent name="org.bram.musicdiscovery.web.server.enums" />
       <recent name="org.bram.musicdiscovery.files" />
       <recent name="musicdiscovery" />
     </key>

@@ -8,6 +8,8 @@ import org.bram.musicdiscovery.files.MusicService;
 import org.bram.musicdiscovery.utils.StringUtils;
 import org.bram.musicdiscovery.utils.WebUtils;
 import org.bram.musicdiscovery.utils.WebUtils.ContentType;
+import org.bram.musicdiscovery.web.enums.RequestParameters;
+import org.bram.musicdiscovery.web.enums.ResponseParameters;
 
 import java.io.IOException;
 
@@ -15,7 +17,7 @@ public class GetAllAlbumsForArtistHandler extends AbstractHandler implements Htt
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         JsonObject response = new JsonObject();
-        String artist = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), "artist");
+        String artist = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), RequestParameters.ARTIST.getParameterName());
         if (StringUtils.isBlank(artist)) {
             response.addProperty("error", "Artist is blank");
             writeResponse(exchange, 400, response.toString(), ContentType.APPLICATION_JSON.getType());
@@ -25,7 +27,7 @@ public class GetAllAlbumsForArtistHandler extends AbstractHandler implements Htt
         for (String album : MusicService.getAllAlbumsForArtist(artist)) {
             array.add(album);
         }
-        response.add("albums", array);
+        response.add(ResponseParameters.ALBUMS.getParameterName(), array);
         writeResponse(exchange, 200, response.toString(), ContentType.APPLICATION_JSON.getType());
     }
 }

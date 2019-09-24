@@ -14,10 +14,9 @@ public class MainWindow {
     private JTextArea logText;
 
     public MainWindow() {
-        MusicServer.init();
     }
 
-    public void showWindow() {
+    public void init() {
         // Set up the window.
         JFrame frame = new JFrame("Music Discovery");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -99,7 +98,17 @@ public class MainWindow {
         c.insets = new Insets(0, 10, 10, 10);
         frame.add(discoverButton, c);
         // Show window.
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        // Init the server
+        try {
+            MusicServer.init();
+        } catch (Exception e) {
+            chooseDirectoryButton.setEnabled(false);
+            discoverButton.setEnabled(false);
+            logMessage(String.format("Could not initialize the server: %s", e.getMessage()));
+            logMessage("Cannot discover music.");
+        }
     }
 
     public void initListen() {
@@ -108,7 +117,6 @@ public class MainWindow {
             MusicService.findMusic(getDirectoryLocation());
             logMessage(String.format("Music compiled. Currently streaming music from %s.", new File(getDirectoryLocation()).getName()));
         } catch (Throwable t) {
-            // TODO: Error handling and reset everything.
             logMessage(String.format("Discovery failed: %s", t.getMessage()));
         }
     }

@@ -7,6 +7,7 @@ import org.bram.musicdiscovery.files.MusicService;
 import org.bram.musicdiscovery.utils.StringUtils;
 import org.bram.musicdiscovery.utils.WebUtils;
 import org.bram.musicdiscovery.utils.WebUtils.ContentType;
+import org.bram.musicdiscovery.web.enums.RequestParameters;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,21 +16,21 @@ import java.nio.file.Paths;
 public class StreamSongHandler extends AbstractHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        String artist = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), "artist");
+        String artist = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), RequestParameters.ARTIST.getParameterName());
         if (StringUtils.isBlank(artist)) {
             JsonObject response = new JsonObject();
             response.addProperty("error", "Artist is blank");
             writeResponse(exchange, 400, response.toString(), ContentType.APPLICATION_JSON.getType());
             return;
         }
-        String album = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), "album");
+        String album = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), RequestParameters.ALBUM.getParameterName());
         if (StringUtils.isBlank(album)) {
             JsonObject response = new JsonObject();
             response.addProperty("error", "Album is blank");
             writeResponse(exchange, 400, response.toString(), ContentType.APPLICATION_JSON.getType());
             return;
         }
-        String trackNumberString = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), "track");
+        String trackNumberString = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), RequestParameters.TRACK.getParameterName());
         if (StringUtils.isBlank(trackNumberString)) {
             JsonObject response = new JsonObject();
             response.addProperty("error", "Track is blank");

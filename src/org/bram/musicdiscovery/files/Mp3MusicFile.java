@@ -13,7 +13,7 @@ public class Mp3MusicFile implements IMusicFile {
     private String artist = null;
     private String album = null;
     private String song = null;
-    private int track = -1;
+    private int track = 0;
 
     @Override
     public void parseFile(File file) throws Exception {
@@ -58,7 +58,10 @@ public class Mp3MusicFile implements IMusicFile {
             }
             return;
         }
-        // TODO: Throw could not parse exception or do default fields.
+        // Could not parse
+        artist = IMusicFile.UNKNOWN;
+        album = IMusicFile.UNKNOWN;
+        song = IMusicFile.UNKNOWN;
     }
 
     @Override

@@ -6,6 +6,8 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import org.bram.musicdiscovery.files.MusicService;
 import org.bram.musicdiscovery.utils.WebUtils.ContentType;
+import org.bram.musicdiscovery.web.enums.RequestParameters;
+import org.bram.musicdiscovery.web.enums.ResponseParameters;
 
 import java.io.IOException;
 
@@ -17,7 +19,7 @@ public class GetAllArtistsHandler extends AbstractHandler implements HttpHandler
         for (String artist : MusicService.getAllArtists()) {
             array.add(artist);
         }
-        response.add("artists", array);
+        response.add(ResponseParameters.ARTISTS.getParameterName(), array);
         writeResponse(exchange, 200, response.toString(), ContentType.APPLICATION_JSON.getType());
     }
 }
