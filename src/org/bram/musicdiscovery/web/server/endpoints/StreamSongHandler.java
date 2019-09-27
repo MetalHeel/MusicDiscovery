@@ -7,6 +7,7 @@ import org.bram.musicdiscovery.files.MusicService;
 import org.bram.musicdiscovery.utils.StringUtils;
 import org.bram.musicdiscovery.utils.WebUtils;
 import org.bram.musicdiscovery.utils.WebUtils.ContentType;
+import org.bram.musicdiscovery.web.enums.ErrorMessages;
 import org.bram.musicdiscovery.web.enums.RequestParameters;
 
 import java.io.IOException;
@@ -19,21 +20,21 @@ public class StreamSongHandler extends AbstractHandler implements HttpHandler {
         String artist = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), RequestParameters.ARTIST.getParameterName());
         if (StringUtils.isBlank(artist)) {
             JsonObject response = new JsonObject();
-            response.addProperty("error", "Artist is blank");
+            response.addProperty("error", ErrorMessages.BLANK_ARTIST.getMessage());
             writeResponse(exchange, 400, response.toString(), ContentType.APPLICATION_JSON.getType());
             return;
         }
         String album = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), RequestParameters.ALBUM.getParameterName());
         if (StringUtils.isBlank(album)) {
             JsonObject response = new JsonObject();
-            response.addProperty("error", "Album is blank");
+            response.addProperty("error", ErrorMessages.BLANK_ALBUM.getMessage());
             writeResponse(exchange, 400, response.toString(), ContentType.APPLICATION_JSON.getType());
             return;
         }
         String trackNumberString = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), RequestParameters.TRACK.getParameterName());
         if (StringUtils.isBlank(trackNumberString)) {
             JsonObject response = new JsonObject();
-            response.addProperty("error", "Track is blank");
+            response.addProperty("error", ErrorMessages.BLANK_TRACK.getMessage());
             writeResponse(exchange, 400, response.toString(), ContentType.APPLICATION_JSON.getType());
             return;
         }
@@ -42,20 +43,20 @@ public class StreamSongHandler extends AbstractHandler implements HttpHandler {
             trackNumber = Integer.parseInt(trackNumberString);
         } catch (NumberFormatException e) {
             JsonObject response = new JsonObject();
-            response.addProperty("error", "Track needs to be a valid positive integer");
+            response.addProperty("error", ErrorMessages.INVALID_INTEGER.getMessage());
             writeResponse(exchange, 400, response.toString(), ContentType.APPLICATION_JSON.getType());
             return;
         }
         String filePath = MusicService.getTrackLocation(artist, album, trackNumber);
         if (StringUtils.isBlank(filePath)) {
             JsonObject response = new JsonObject();
-            response.addProperty("error", "Track did not have corresponding file path");
+            response.addProperty("error", ErrorMessages.MISSING_PATH.getMessage());
             writeResponse(exchange, 400, response.toString(), ContentType.APPLICATION_JSON.getType());
             return;
         }
         if (!Files.exists(Paths.get(filePath))) {
             JsonObject response = new JsonObject();
-            response.addProperty("error", "Music file does not exist");
+            response.addProperty("error", ErrorMessages.MISSING_FILE.getMessage());
             writeResponse(exchange, 400, response.toString(), ContentType.APPLICATION_JSON.getType());
             return;
         }

@@ -10,6 +10,7 @@ import java.awt.*;
 import java.io.File;
 
 public class MainWindow {
+    private JFrame frame;
     private JTextField directoryLocationField;
     private JTextArea logText;
 
@@ -18,7 +19,7 @@ public class MainWindow {
 
     public void init() {
         // Set up the window.
-        JFrame frame = new JFrame("Music Discovery");
+        frame = new JFrame("Music Discovery");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         frame.setSize(500, 500);
@@ -131,6 +132,7 @@ public class MainWindow {
 
     public void logMessage(String message) {
         logText.append(String.format("%s\n", message));
+        frame.repaint();
     }
 
     public void clearLog() {

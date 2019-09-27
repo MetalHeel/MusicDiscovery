@@ -18,22 +18,27 @@ public class DiscoveryListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         mainWindow.clearLog();
-        mainWindow.logMessage("Checking directory location...");
-        String directoryLocation = mainWindow.getDirectoryLocation();
-        if (StringUtils.isBlank(directoryLocation)) {
-            mainWindow.logMessage("No directory chosen.");
-            return;
-        }
-        File musicDirectory = new File((directoryLocation));
-        if (!musicDirectory.isDirectory()) {
-            mainWindow.logMessage("Location chosen is not a directory.");
-            return;
-        }
-        if (!musicDirectory.exists()) {
-            mainWindow.logMessage("Not a valid directory.");
-            return;
-        }
-        mainWindow.logMessage("Valid directory found.");
-        mainWindow.initListen();
+        ((JButton)e.getSource()).setEnabled(false);
+        Thread t = new Thread(() -> {
+            mainWindow.logMessage("Checking directory location...");
+            String directoryLocation = mainWindow.getDirectoryLocation();
+            if (StringUtils.isBlank(directoryLocation)) {
+                mainWindow.logMessage("No directory chosen.");
+                return;
+            }
+            File musicDirectory = new File((directoryLocation));
+            if (!musicDirectory.isDirectory()) {
+                mainWindow.logMessage("Location chosen is not a directory.");
+                return;
+            }
+            if (!musicDirectory.exists()) {
+                mainWindow.logMessage("Not a valid directory.");
+                return;
+            }
+            mainWindow.logMessage("Valid directory found.");
+            mainWindow.initListen();
+            ((JButton)e.getSource()).setEnabled(true);
+        });
+        t.start();
     }
 }

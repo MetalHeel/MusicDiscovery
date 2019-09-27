@@ -8,6 +8,7 @@ import org.bram.musicdiscovery.files.MusicService;
 import org.bram.musicdiscovery.utils.StringUtils;
 import org.bram.musicdiscovery.utils.WebUtils;
 import org.bram.musicdiscovery.utils.WebUtils.ContentType;
+import org.bram.musicdiscovery.web.enums.ErrorMessages;
 import org.bram.musicdiscovery.web.enums.RequestParameters;
 import org.bram.musicdiscovery.web.enums.ResponseParameters;
 
@@ -19,13 +20,13 @@ public class GetAllSongsForArtistAndAlbumHandler extends AbstractHandler impleme
         JsonObject response = new JsonObject();
         String artist = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), RequestParameters.ARTIST.getParameterName());
         if (StringUtils.isBlank(artist)) {
-            response.addProperty("error", "Artist is blank");
+            response.addProperty("error", ErrorMessages.BLANK_ARTIST.getMessage());
             writeResponse(exchange, 400, response.toString(), ContentType.APPLICATION_JSON.getType());
             return;
         }
         String album = WebUtils.getParameterValueFromQuery(exchange.getRequestURI().getQuery(), RequestParameters.ALBUM.getParameterName());
         if (StringUtils.isBlank(album)) {
-            response.addProperty("error", "Album is blank");
+            response.addProperty("error", ErrorMessages.BLANK_ALBUM.getMessage());
             writeResponse(exchange, 400, response.toString(), ContentType.APPLICATION_JSON.getType());
             return;
         }
