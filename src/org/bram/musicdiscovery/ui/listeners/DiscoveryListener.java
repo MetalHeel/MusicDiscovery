@@ -18,7 +18,6 @@ public class DiscoveryListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         mainWindow.clearLog();
-        ((JButton)e.getSource()).setEnabled(false);
         Thread t = new Thread(() -> {
             mainWindow.logMessage("Checking directory location...");
             String directoryLocation = mainWindow.getDirectoryLocation();
@@ -37,7 +36,6 @@ public class DiscoveryListener implements ActionListener {
             }
             mainWindow.logMessage("Valid directory found.");
             mainWindow.initListen();
-            ((JButton)e.getSource()).setEnabled(true);
         });
         t.start();
     }

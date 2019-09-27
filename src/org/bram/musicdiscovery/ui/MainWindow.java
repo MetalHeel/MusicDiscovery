@@ -12,7 +12,9 @@ import java.io.File;
 public class MainWindow {
     private JFrame frame;
     private JTextField directoryLocationField;
+    private JButton chooseDirectoryButton;
     private JTextArea logText;
+    private JButton discoverButton;
 
     public MainWindow() {
     }
@@ -59,7 +61,7 @@ public class MainWindow {
         c.insets = new Insets(0, 0, 0, 10);
         frame.add(directoryLocationField, c);
         // Choose directory button.
-        JButton chooseDirectoryButton = new JButton("Choose New...");
+        chooseDirectoryButton = new JButton("Choose New...");
         chooseDirectoryButton.addActionListener(new ChooseDirectoryListener(this));
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 2;
@@ -87,7 +89,7 @@ public class MainWindow {
         c.insets = new Insets(0, 10, 10, 10);
         frame.add(scrollPane, c);
         // Discover button.
-        JButton discoverButton = new JButton("Discover");
+        discoverButton = new JButton("Discover");
         discoverButton.addActionListener(new DiscoveryListener(this));
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
@@ -114,12 +116,16 @@ public class MainWindow {
 
     public void initListen() {
         try {
+            chooseDirectoryButton.setEnabled(false);
+            discoverButton.setEnabled(false);
             logMessage("Finding music...");
             MusicService.findMusic(getDirectoryLocation());
             logMessage(String.format("Music compiled. Currently streaming music from %s.", new File(getDirectoryLocation()).getName()));
         } catch (Throwable t) {
             logMessage(String.format("Discovery failed: %s", t.getMessage()));
         }
+        chooseDirectoryButton.setEnabled(true);
+        discoverButton.setEnabled(true);
     }
 
     public String getDirectoryLocation() {

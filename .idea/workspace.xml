@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="da0f1f03-4fd9-44f3-87d4-fe737dabae8c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/MainWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/listeners/DiscoveryListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/ui/listeners/DiscoveryListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/GetAllAlbumsForArtistHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/GetAllAlbumsForArtistHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/GetAllSongsForArtistAndAlbumHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/GetAllSongsForArtistAndAlbumHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/StreamSongHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MusicDiscovery/org/bram/musicdiscovery/web/server/endpoints/StreamSongHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/MainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/listeners/DiscoveryListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/ui/listeners/DiscoveryListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/GetAllAlbumsForArtistHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/GetAllAlbumsForArtistHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/GetAllSongsForArtistAndAlbumHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/GetAllSongsForArtistAndAlbumHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/StreamSongHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/bram/musicdiscovery/web/server/endpoints/StreamSongHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
